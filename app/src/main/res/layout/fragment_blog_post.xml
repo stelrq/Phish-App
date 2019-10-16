@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/cardview_dark_background"
+    tools:context=".BlogPostFragment">
+
+    <TextView
+        android:id="@+id/text_post_title"
+        android:textColor="@color/blogText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/text_post_publish_date"
+        android:textColor="@color/blogText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_blank_fragment" />
+
+
+    <TextView
+        android:id="@+id/text_post_teaser"
+        android:textColor="@color/blogText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/button_post_full"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_post_full" />
+
+</LinearLayout>
