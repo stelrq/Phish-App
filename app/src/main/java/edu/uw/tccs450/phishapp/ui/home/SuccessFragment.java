@@ -1,6 +1,7 @@
 package edu.uw.tccs450.phishapp.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import edu.uw.tccs450.phishapp.HomeActivityArgs;
 import edu.uw.tccs450.phishapp.R;
 import edu.uw.tccs450.phishapp.model.Credentials;
 
@@ -24,13 +26,13 @@ public class SuccessFragment extends Fragment {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_success, container, false);
-        final TextView textView = root.findViewById(R.id.text_success_email);
-        homeViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+//        final TextView textView = root.findViewById(R.id.text_success_email);
+//        homeViewModel.getText().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
 //        Credentials cred = (Credentials) getArguments().getSerializable(getString(R.string.credentials_key));
 //        TextView tv = root.findViewById(R.id.text_success_email);
 //        tv.setText(cred.getEmail());
@@ -40,4 +42,15 @@ public class SuccessFragment extends Fragment {
 //        super.onStart();
 //        View view = getView();
 //    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        HomeActivityArgs args = HomeActivityArgs.fromBundle(getArguments());
+        Credentials cred = args.getCredentials();
+        ((TextView) getActivity().findViewById(R.id.text_success_email)).
+                setText(cred.getEmail());
+        String jwt = args.getJwt();
+        Log.d("JWT", jwt);
+    }
 }

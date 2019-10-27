@@ -18,11 +18,35 @@
         <action
             android:id="@+id/action_nav_blogFragment_to_blogPostFragment"
             app:destination="@id/blogPostFragment" />
+        <argument
+            android:name="blogs"
+            app:argType="edu.uw.tccs450.phishapp.blog.BlogPost[]" />
     </fragment>
     <fragment
         android:id="@+id/blogPostFragment"
         android:name="edu.uw.tccs450.phishapp.BlogPostFragment"
         android:label="fragment_blog_post"
         tools:layout="@layout/fragment_blog_post" />
+    <action android:id="@+id/action_global_nav_blogFragment" app:destination="@id/nav_blogFragment" />
+    <fragment
+        android:id="@+id/nav_setFragment"
+        android:name="edu.uw.tccs450.phishapp.SetFragment"
+        android:label="fragment_set_list"
+        tools:layout="@layout/fragment_set_list" >
+        <argument
+            android:name="sets"
+            app:argType="edu.uw.tccs450.phishapp.setlist.SetList[]" />
+        <action
+            android:id="@+id/action_nav_setFragment_to_setListFragment"
+            app:destination="@id/setListFragment" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_nav_setFragment"
+        app:destination="@id/nav_setFragment" />
+    <fragment
+        android:id="@+id/setListFragment"
+        android:name="edu.uw.tccs450.phishapp.SetListFragment"
+        android:label="fragment_setlist"
+        tools:layout="@layout/fragment_setlist" />
 
 </navigation>

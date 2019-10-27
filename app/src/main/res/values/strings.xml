@@ -4,9 +4,13 @@
     <string name="text_login_title">ID PROTECT</string>
 
     <string name="text_register_title">Please register to protect your credentials!</string>
-
+    <string name="field_empty">Field cannot be empty</string>
+    <string name="field_password_match_error">Passwords must match</string>
     <string name="field_registerlogin_pw">Password</string>
     <string name="field_register_confirmpw">Confirm Password</string>
+    <string name="field_register_firstname">First Name</string>
+    <string name="field_register_lastname">Last Name</string>
+    <string name="field_register_nickname">Nick Name</string>
     <string name="button_registerlogin_register">Register</string>
     <string name="button_login_login">Login</string>
     <string name="field_registerlogin_email">Email</string>
@@ -25,6 +29,31 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+
+    <!--    keys-->
+    <string name="keys_shared_prefs">edu.uw.tcss450.challengeapp.PREFS</string>
+    <string name="keys_prefs_username">username</string>
+    <string name="keys_prefs_stay_logged_in">loggedIn</string>
+    <string name="keys_json_login_success">success</string>
+    <string name="keys_json_login_jwt">token</string>
+    <!--    blog keys-->
+    <string name="keys_json_blogs_response">response</string>
+    <string name="keys_json_blogs_data">data</string>
+    <string name="keys_json_blogs_pubdate">pubdate</string>
+    <string name="keys_json_blogs_title">title</string>
+    <string name="keys_json_blogs_teaser">teaser</string>
+    <string name="keys_json_blogs_url">url</string>
+    <!--    set keys-->
+    <string name="keys_json_sets_response">response</string>
+    <string name="keys_json_sets_data">data</string>
+    <string name="keys_json_sets_date">long_date</string>
+    <string name="keys_json_sets_location">location</string>
+    <string name="keys_json_sets_venue">venue</string>
+    <string name="keys_json_sets_listdata">setlistdata</string>
+    <string name="keys_json_sets_notes">setlistnotes</string>
+    <string name="keys_json_sets_url">url</string>
+    <string name="keys_setlist">this does not matter</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

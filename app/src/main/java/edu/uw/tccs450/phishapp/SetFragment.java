@@ -18,8 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import edu.uw.tccs450.phishapp.blog.BlogGenerator;
-import edu.uw.tccs450.phishapp.blog.BlogPost;
+import edu.uw.tccs450.phishapp.setlist.SetList;
 
 /**
  * A fragment representing a list of Items.
@@ -27,42 +26,44 @@ import edu.uw.tccs450.phishapp.blog.BlogPost;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class BlogFragment extends Fragment {
+public class SetFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private OnListFragmentInteractionListener mListener;
-    private List<BlogPost> mBlogs;
+    private List<SetList> mSets;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public BlogFragment() {
+    public SetFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static BlogFragment newInstance(int columnCount) {
-        BlogFragment fragment = new BlogFragment();
+    public static SetFragment newInstance(int columnCount) {
+        SetFragment fragment = new SetFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BlogFragmentArgs args = BlogFragmentArgs.fromBundle(getArguments());
-        mBlogs = new ArrayList<>(Arrays.asList(args.getBlogs()));
+        SetFragmentArgs args = SetFragmentArgs.fromBundle(getArguments());
+        mSets = new ArrayList<SetList>(Arrays.asList(args.getSets()));
+//        mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_blog_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_set_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -73,17 +74,18 @@ public class BlogFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyBlogRecyclerViewAdapter(mBlogs, this::displayBlogPost));
+            recyclerView.setAdapter(new MySetListRecyclerViewAdapter(mSets, this::displaySetList));
         }
         return view;
     }
 
-    private void displayBlogPost(final BlogPost blogPost) {
-        Bundle args = new Bundle();
-        args.putSerializable("blog post key", blogPost);
+    public void displaySetList(SetList setList) {
         NavController nc = Navigation.findNavController(getView());
-        nc.navigate(R.id.action_nav_blogFragment_to_blogPostFragment, args);
+        Bundle args = new Bundle();
+        args.putSerializable(getString(R.string.keys_setlist), setList);
+        nc.navigate(R.id.action_nav_setFragment_to_setListFragment, args);
     }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -96,7 +98,6 @@ public class BlogFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(BlogPost item);
+        void onListFragmentInteraction(SetList item);
     }
-
 }
